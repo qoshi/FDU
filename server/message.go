@@ -1,30 +1,36 @@
 package main
 
 import (
+	"fmt"
 	"linkedin/service/mongodb"
+
+	"time"
 
 	"gopkg.in/mgo.v2"
 )
 
 type Msg struct {
-	Name    string
-	Country string
-	Context string
+	Name     string
+	Location int
+	Context  string
+	Time     time.Time
 }
 
-func NewMsg(name string, country string, context string) error {
+func NewMsg(name string, country int, context string) error {
 	msg := Msg{
-		Name:    name,
-		Country: country,
-		Context: context,
+		Name:     name,
+		Location: country,
+		Context:  context,
+		Time:     time.Now(),
 	}
+	fmt.Println(msg)
 	mongodb.Exec("message", func(c *mgo.Collection) error {
 		return c.Insert(&msg)
 	})
 	return nil
 }
 
-func getMsg(start, count int) []Msg {
+func GetMsg(start, count int) []Msg {
 	var result []Msg
 	mongodb.Exec("message", func(c *mgo.Collection) error {
 		return c.Find(nil).Skip(start).Limit(count).All(&result)
