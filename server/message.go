@@ -32,8 +32,9 @@ func NewMsg(name string, country int, context string) error {
 
 func GetMsg(start, count int) []Msg {
 	var result []Msg
+	fmt.Println(start, count)
 	mongodb.Exec("message", func(c *mgo.Collection) error {
 		return c.Find(nil).Skip(start).Limit(count).All(&result)
 	})
-	return nil
+	return result
 }

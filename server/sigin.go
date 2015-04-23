@@ -28,9 +28,9 @@ func NewSignin(name string, location int) error {
 }
 
 func GetSignin(start, count int) []Msg {
-	var result []Signin
+	var result []Msg
 	mongodb.Exec("signin", func(c *mgo.Collection) error {
 		return c.Find(nil).Skip(start).Limit(count).All(&result)
 	})
-	return nil
+	return result
 }
