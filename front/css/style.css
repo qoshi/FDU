@@ -1,0 +1,151 @@
+.row {
+    margin : 0;
+}
+
+.glyphicon {
+    top : 0;
+    background : white;
+    border-right : none;
+    border-color : white;
+    background : #0e419b;
+    color : white;
+}
+
+.section {
+    padding : 0;
+    margin : 0;
+    height : "100%"
+}
+
+#time {
+    font-size : 14px;
+    color : gray;
+}
+
+#siginP {
+    height : 60px;
+    line-height : 60px;
+    font-size : 40px;
+    color : black;
+}
+
+#userCount {
+    height : 100px;
+    line-height : 100px;
+    font-size : 80px;
+    background : #0e419b;
+    color : white;
+}
+
+#mapContainer {
+    /* position : absolute; */
+    background : white;
+    text-align : center;
+}
+
+.btnM {
+    text-align : center;
+    font-size : 20px;
+    height : 50px;
+    line-height : 50px;
+    border-radius : 20px;
+    border : 2px solid #0e419b;
+    margin-right : 30px;
+}
+
+.btnMA{
+    background : white;
+    color : #0e419b;
+}
+
+.btnMNa{
+    background : #0e419b;
+    color : white;
+}
+
+#page2 {
+    background : #0e419b;
+}
+
+.input {
+    border-left : none;
+    background : #0e419b;
+    border-color : white;
+    color : white;
+    border-rediaus : 0;
+}
+
+.input-group{
+    margin : 0;
+    padding : 0;
+}
+
+.area {
+    height : 12em;
+}
+#newMsgContext {
+    height : 12em;
+}
+#logoContainer {
+}
+
+#infoContainer {
+    height : 50%;
+    background : green;
+}
+
+#newMessageContainer {
+    height : 50%;
+}
+
+.infoItem {
+    height : 100%;
+}
+
+#chartContainer {
+    background : white;
+}
+
+#siginContainer {
+    background : black;
+}
+
+#inputG1 {
+    margin-top : 100px;
+}
+
+#inputG2 {
+    margin : 50px 0;
+}
+
+#sendMessage {
+    background : white;
+    color : #0e419b;
+}
+
+#lInfoContainer {
+    height : 50%;
+    background : gray;
+}
+
+#messageContainer {
+    height : 50%;
+    background : black;
+}
+
+#linkedinUserCount{
+    text-align : right;
+}
+
+.cicle{
+    height : 60px;
+    background : red;
+    border-radius : 30px;
+    lineheight : 60px;
+    fint-size : 40px;
+    background : gray;
+}
+
+.cicle span {
+    color :  #0e419b;
+}

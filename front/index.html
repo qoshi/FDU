@@ -2,18 +2,101 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
     <title>Chaitin Tech</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content=""><meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
   </head>
   <body>
     <div id="fullpage">
-      <div class="section">Some section</div>
-      <div class="section">Some section</div>
-      <div class="section">Some section</div>
-      <div class="section">Some section</div>
+      <div id="page1" class="section container-fluid">
+        <div id="logoContainer" class="row">
+          <img id="fudanlogo1" src="./image/web/fudanlogo1.png">
+          <img id="fudanlogo2" src="./image/web/fudanlogo2.png">
+          <img class="pull-right" id="linkedinlogo1" src="./image/web/linkedinlogo.png">
+        </div>
+        <div class="col-md-12" id="mapContainer">
+          <div id ="numContainer" class="col-md-4 col-md-offset-4">
+            <div id="time">
+              2015年3月20日 12:11:11
+            </div>
+            <div id="siginP">签到人</div>
+            <div id="userCount" class="col-md-8 col-md-offset-2">1000000</div>
+          </div>
+          <div id="buttonContainer" class="col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="btnM btnMA col-md-offset-4 col-md-2">世界地图</div>
+              <div class="btnM btnMNa col-md-2">中国地图</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="page2" class="section container-fluid">
+        <div id="infoContainer" class="row">
+          <div id="chartContainer" class="infoItem col-md-6">
+          </div>
+          <div id="siginContainer" class="infoItem col-md-6">
+          </div>
+        </div>
+        <div id="newMessageContainer" class="col-md-8 col-md-offset-2">
+          <div id="inputG1" class="row">
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-user"></span>
+                <input type="text" class="input form-control" placeholder="姓名" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-map-marker"></span>
+                <input type="text" class="input form-control" placeholder="地点" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+          </div>
+          <div id="inputG2" class="row">
+            <div class="input-group">
+              <span class="area input-group-addon glyphicon glyphicon-pencil"></span>
+              <textarea id="newMsgContext" class="area input form-control">
+              </textarea>
+            </div>
+          </div>
+            <div id="sendMessage" class="btnM col-md-4 col-md-offset-4">
+              <img id="sendMessageI" src='./image/web/sendM.png'>
+              给母校送祝福
+            </div>
+        </div>
+      </div>
+      <div id="page3" class="section container-fluid">
+        <div id="lInfoContainer" class="col-md-12">
+          <div class="col-md-offset-4 col-md-4">
+            <div>在领英上已聚合校友</div>
+              <div class="row">
+                <div class="col-md-10" id="linkedinUserCount">
+                  12312313
+                </div>
+                <div class="col-md-2">
+                  位
+                </div>
+              </div>
+          </div>
+        </div>
+        <div id="messageContainer" class="col-md-offset-1 col-md-10">
+          <div class="row">
+            <div id="cicle1" class="cicle col-md-3">
+              <span class="input-group-addon glyphicon glyphicon-user"></span>
+            </div>
+            <div id="cicle2" class="cicle col-md-3">
+              <span class="input-group-addon glyphicon glyphicon-user"></span>
+            </div>
+            <div id="cicle3" class="cicle col-md-3">
+              <span class="input-group-addon glyphicon glyphicon-user"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="./js/jquery-1.11.2.min.js"></script>
     <script src="./js/jquery.fullPage.min.js"></script>
