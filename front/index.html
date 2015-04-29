@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta charset="utf-8">
-    <title>Chaitin Tech</title>
+    <title>复旦大学校庆活动</title>
     <meta name="description" content=""><meta name="author" content="">
     <link rel="stylesheet" type="text/css" href="./css/jquery.fullPage.css" />
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
@@ -23,13 +23,15 @@
             <div id="time">
               2015年3月20日 12:11:11
             </div>
-            <div id="siginP">签到人</div>
-            <div id="userCount" class="col-md-8 col-md-offset-2">1000000</div>
+            <div id="signinP">签到人</div>
+            <div id="userCount" class="col-md-12">10000</div>
+          </div>
+          <div id="map" class="col-md-12">
           </div>
           <div id="buttonContainer" class="col-md-10 col-md-offset-1">
-            <div class="row">
-              <div class="btnM btnMA col-md-offset-4 col-md-2">世界地图</div>
-              <div class="btnM btnMNa col-md-2">中国地图</div>
+            <div id="p1ButContainer" class="row">
+              <div id="worldBut" class="btnM col-md-offset-4 col-md-2">世界地图</div>
+              <div id="chinaBut" class="btnM btnMA col-md-2">中国地图</div>
             </div>
           </div>
         </div>
@@ -37,8 +39,10 @@
       <div id="page2" class="section container-fluid">
         <div id="infoContainer" class="row">
           <div id="chartContainer" class="infoItem col-md-6">
+            <div id="chart">
+            </div>
           </div>
-          <div id="siginContainer" class="infoItem col-md-6">
+          <div id="signinContainer" class="infoItem col-md-6">
           </div>
         </div>
         <div id="newMessageContainer" class="col-md-8 col-md-offset-2">
@@ -46,21 +50,20 @@
             <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon glyphicon glyphicon-user"></span>
-                <input type="text" class="input form-control" placeholder="姓名" aria-describedby="sizing-addon1">
+                <input type="text" id="msgName" class="input form-control" placeholder="姓名" aria-describedby="sizing-addon1">
               </div>
             </div>
             <div class="col-md-6">
               <div class="input-group">
                 <span class="input-group-addon glyphicon glyphicon-map-marker"></span>
-                <input type="text" class="input form-control" placeholder="地点" aria-describedby="sizing-addon1">
+                <input type="text" id="msgLocation" class="input form-control" placeholder="地点" aria-describedby="sizing-addon1">
               </div>
             </div>
           </div>
           <div id="inputG2" class="row">
             <div class="input-group">
-              <span class="area input-group-addon glyphicon glyphicon-pencil"></span>
-              <textarea id="newMsgContext" class="area input form-control">
-              </textarea>
+              <span id="msgContext" class="area input-group-addon glyphicon glyphicon-pencil"></span>
+              <textarea id="newMsgContext" class="area input form-control"></textarea>
             </div>
           </div>
             <div id="sendMessage" class="btnM col-md-4 col-md-offset-4">
@@ -71,39 +74,41 @@
       </div>
       <div id="page3" class="section container-fluid">
         <div id="lInfoContainer" class="col-md-12">
-          <div class="col-md-offset-4 col-md-4">
-            <div>在领英上已聚合校友</div>
-              <div class="row">
-                <div class="col-md-10" id="linkedinUserCount">
-                  12312313
-                </div>
-                <div class="col-md-2">
-                  位
-                </div>
-              </div>
+          <div id="lInfo" class="col-md-offset-2 col-md-8">
+            <div id="lUser">在领英上已聚合校友</div>
+            <div id="lUserC">
+              <strong id="lUserCount">123456</strong>
+              位
+            </div>
+            <div class="btnM btnMA col-md-offset-4 col-md-4">
+              <div id="searchI" class="glyphicon glyphicon-search"></div>
+              查看更多校友
+            </div>
           </div>
         </div>
         <div id="messageContainer" class="col-md-offset-1 col-md-10">
-          <div class="row">
-            <div id="cicle1" class="cicle col-md-3">
-              <span class="input-group-addon glyphicon glyphicon-user"></span>
+          <div id="iconHolder" class="row">
+            <div class="col-md-3">
+              <img src="./image/web/c1.png"></img>
             </div>
-            <div id="cicle2" class="cicle col-md-3">
-              <span class="input-group-addon glyphicon glyphicon-user"></span>
+            <div class="col-md-3">
+              <img src="./image/web/c2.png"></img>
             </div>
-            <div id="cicle3" class="cicle col-md-3">
-              <span class="input-group-addon glyphicon glyphicon-user"></span>
+            <div class="col-md-6">
+              <img src="./image/web/c3.png"></img>
             </div>
           </div>
+          <div id="message"></div>
         </div>
       </div>
     </div>
     <script src="./js/jquery-1.11.2.min.js"></script>
     <script src="./js/jquery.fullPage.min.js"></script>
-    <script>
-      $(document).ready(function() {
-      $('#fullpage').fullpage();
-      });
+    <script src="./js/socket.io.js"></script>
+    <script src="./js/echarts-all.js"></script>
+    <!-- <script src-"./js/map.js"></script> -->
+    <script src="./js/config.js"></script>
+    <script src="./js/main.js"></script>
     </script>
   </body>
 </html>

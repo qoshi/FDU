@@ -23,8 +23,14 @@
     height : "100%"
 }
 
-textarea:focus, input:focus{
-    outline: 0;
+.input:focus, .area:focus {
+    outline: none;
+    box-shadow : none;
+    border-left : none;
+    background : #0e419b;
+    border-color : white;
+    color : white;
+    border-rediaus : 0;
 }
 
 
@@ -33,11 +39,11 @@ textarea:focus, input:focus{
     color : gray;
 }
 
-#siginP {
+#signinP {
     height : 60px;
     line-height : 60px;
     font-size : 40px;
-    color : black;
+    /* color : ; */
 }
 
 #userCount {
@@ -64,7 +70,10 @@ textarea:focus, input:focus{
     margin-right : 30px;
     background : #0e419b;
     color : white;
+}
 
+.btnM:hover {
+    cursor : pointer;
 }
 
 .btnMA{
@@ -90,33 +99,46 @@ textarea:focus, input:focus{
 }
 
 .area {
-    height : 12em;
+    height : 15em;
+    text-indent:0;
 }
 #newMsgContext {
-    height : 12em;
+    height : 15em;
 }
 #logoContainer {
 }
 
 #infoContainer {
-    height : 50%;
-    background : green;
+    height : 30%;
 }
 
 #newMessageContainer {
-    height : 50%;
+    height : 70%;
 }
 
 .infoItem {
+    padding : 0;
+    margin : 0;
     height : 100%;
 }
 
 #chartContainer {
-    background : white;
+    background-image : url("../image/web/chartbg.png");
+    background-size : cover;
+    height : 100%;
 }
 
-#siginContainer {
-    background : black;
+#chart {
+    width : 100%;
+    height : 100%;
+}
+
+#signinContainer {
+    overflow-y :scroll;
+    background : white;
+    font-size : 20px;
+    line-height : 20px;
+    padding : 30px;
 }
 
 #inputG1 {
@@ -134,12 +156,13 @@ textarea:focus, input:focus{
 
 #lInfoContainer {
     height : 50%;
-    background : gray;
+    background-image : url("../image/web/bgi.png");
+    background-repeat :repeat;
 }
 
 #messageContainer {
     height : 50%;
-    background : black;
+    /* background : black; */
 }
 
 #linkedinUserCount{
@@ -196,3 +219,29 @@ textarea:focus, input:focus{
     color : #00A0DC;
     vertical-align : baseline;
 }
+
+#iconHolder{
+    margin : 20px;
+    text-align : center;
+}
+
+#message {
+    height : 300px;
+    overflow-y : scroll;
+}
+
+.nameS,.locationS {
+    text-align : left;
+}
+
+.nameM,.locationM {
+    text-align : center;
+    border-right : 1px solid black;
+    font-size : 20px;
+    line-height : 50px;
+}
+
+.tempM {
+    height : 50px;
+}
+
