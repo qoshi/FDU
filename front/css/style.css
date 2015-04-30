@@ -1,3 +1,7 @@
+#llogo{
+    padding-top : 14px;
+    padding-right : 10px;
+}
 .row {
     margin : 0;
 }
@@ -85,6 +89,7 @@
     background : #0e419b;
 }
 
+
 .input {
     border-left : none;
     background : #0e419b;
@@ -139,6 +144,7 @@
     font-size : 20px;
     line-height : 20px;
     padding : 30px;
+    overflow-y : scroll;
 }
 
 #inputG1 {

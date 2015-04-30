@@ -14,9 +14,10 @@ type Msg struct {
 	Location int
 	Context  string
 	Time     time.Time
+	Ip       string
 }
 
-func NewMsg(name string, country int, context string) error {
+func NewMsg(name string, country int, context string, ip string) error {
 	msg := Msg{
 		Name:     name,
 		Location: country,

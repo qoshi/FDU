@@ -94,7 +94,6 @@ function bindEvent() {
         return false;
     });
     $("#sendMessage").on("click",function(){
-        console.log("hahaha");
         newSignin();
         newPost();
     });
@@ -102,13 +101,14 @@ function bindEvent() {
 
 
 function test() {
-    var name = "sb";
+    var name = "test";
     var location = "中国";
-    var message = "今天好运气啊，老狼请吃鸡啊，你打电话我不接，你打他有啥用啊？？你打电话我不接";
+    var message = "这里是测试留言测试留言测试留言";
     for (var i = 0; i < 10; i++) {
         appendMessage(name,location,i);
         appendSignin(name,location,i);
     }
+    setMapData("chinaMap",testdataChina);
 }
 
 function appendMessage(name,location,message) {
@@ -131,3 +131,7 @@ function appendSignin(name,location,time) {
 }
 
 
+function setMapData(pointer,data) {
+    zt[pointer].series[0].data = data;
+    zt.map.setOption(zt[pointer]);
+}

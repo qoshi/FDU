@@ -11,11 +11,11 @@ type Signin struct {
 	Name     string
 	Location int
 	Time     time.Time
-	token    string
-	ip       string
+	Token    string
+	Ip       string
 }
 
-func NewSignin(name string, location int) error {
+func NewSignin(name string, location int, ip string) error {
 	signin := Signin{
 		Name:     name,
 		Location: location,

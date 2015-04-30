@@ -10,6 +10,7 @@ import (
 
 	"encoding/json"
 	"strconv"
+	"strings"
 )
 
 const (
@@ -20,10 +21,12 @@ const (
 
 //new sign in
 func newSignin(w http.ResponseWriter, req *http.Request) {
+	ip := strings.Split(req.RemoteAddr, ":")[0]
+	log.Println(ip)
 	name := req.FormValue("name")
 	location, _ := strconv.Atoi((req.FormValue("location")))
 	callback := req.FormValue("callback")
-	err := NewSignin(name, location)
+	err := NewSignin(name, location, ip)
 	var result string
 	if err != nil {
 		log.Println(err, name, location)
@@ -39,6 +42,8 @@ func newSignin(w http.ResponseWriter, req *http.Request) {
 }
 
 func getSignin(w http.ResponseWriter, req *http.Request) {
+	ip := strings.Split(req.RemoteAddr, ":")[0]
+	log.Println(ip)
 	u, err := myURL.Parse(req.RequestURI)
 	if err == nil {
 		log.Println()
@@ -71,11 +76,12 @@ func getSignin(w http.ResponseWriter, req *http.Request) {
 }
 
 func newMessage(w http.ResponseWriter, req *http.Request) {
+	ip := strings.Split(req.RemoteAddr, ":")[0]
 	context := req.FormValue("context")
 	name := req.FormValue("name")
 	country, _ := strconv.Atoi((req.FormValue("Location")))
 	callback := req.FormValue("callback")
-	err := NewMsg(name, country, context)
+	err := NewMsg(name, country, context, ip)
 	var result string
 	if err != nil {
 		log.Println(err, name, context)
@@ -91,6 +97,8 @@ func newMessage(w http.ResponseWriter, req *http.Request) {
 }
 
 func getMessage(w http.ResponseWriter, req *http.Request) {
+	ip := strings.Split(req.RemoteAddr, ":")[0]
+	log.Println(ip)
 	var result string
 	u, err := myURL.Parse(req.RequestURI)
 	if err == nil {
