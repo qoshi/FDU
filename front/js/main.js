@@ -12,18 +12,46 @@ function init() {
     })
     zt.chart = echarts.init(document.getElementById('chart'));
     zt.map = echarts.init(document.getElementById('map'));
-    zt.map.on("click",function(e){
-        console.log(e);
-    })
-    changeToMap("chinaMap");
-    zt.chart.setOption(zt.infoChart)
+    getWorld()
+    getChina()
+    // zt.chart.setOption(zt.infoChart)
     test();
 }
 
+function getChina() {
+    var url = zt.host +"/gC?callback=?";
+    $.getJSON(url,function(result){
+        if ( result.success == false ) {
+            return
+        }
+        setMapData("chinaMap",result.data)
+    });
+}
+
+function getWorld() {
+    var url = zt.host +"/gW?callback=?";
+    $.getJSON(url,function(result){
+        if ( result.success == false ) {
+            return
+        }
+        zt.worldMap.series[0].data = result.data;
+    });
+}
+
+function getTop() {
+    var url = zt.host+"/gT?callback=?";
+    $.getJSON(url,function(result){
+        if ( result.success == false )  {
+            return
+        }
+        console.log(result);
+        setChartData(result.data);
+    });
+}
 
 function getSiginNum() {
-    var url = zt.host +"/getSiginCount";
-    $.get(url,function(result){
+    var url = zt.host +"/getSiginCount?callback=?";
+    $.getJSON(url,function(result){
         if ( result.success == false ) {
             return
         }
@@ -31,9 +59,9 @@ function getSiginNum() {
     });
 }
 
+
 function newPost() {
-    var url = zt.host +"/nM";
-    console.log(url);
+    var url = zt.host +"/nM?callback=?";
     var data = {
         name :$("#msgName").val(),
         country :$("#msgLocation").val(),
@@ -49,8 +77,7 @@ function newPost() {
 }
 
 function newSignin() {
-    var url = zt.host+"/nS";
-    console.log(url);
+    var url = zt.host+"/nS?callback=?";
     var data = {
         //TODO
         name :$("#msgName").val(),
@@ -70,7 +97,6 @@ function changeToMap(str) {
     if (zt.whichMap === str) {
         return true;
     }
-    console.log(zt[str]);
     zt.map.setOption(zt[str]);
     zt.whichMap = str;
     return false;
@@ -108,7 +134,22 @@ function test() {
         appendMessage(name,location,i);
         appendSignin(name,location,i);
     }
-    setMapData("chinaMap",testdataChina);
+    // setMapData("chinaMap",testdataChina);
+
+    var url = zt.host+"/socket.io"
+    // console.log(url)
+    var s = io.connect(url)
+    s.on('open',function(){
+        console.log("haha");
+        s.emit('signin');
+    })
+    s.on('data',function(data){
+        console.log(data);
+    })
+    s.on('disconnect',function(){
+        console.log("oops");
+    })
+    getTop();
 }
 
 function appendMessage(name,location,message) {
@@ -134,4 +175,10 @@ function appendSignin(name,location,time) {
 function setMapData(pointer,data) {
     zt[pointer].series[0].data = data;
     zt.map.setOption(zt[pointer]);
+}
+
+function setChartData(data) {
+    zt.infoChart.xAxis[0].data = data.Axis;
+    zt.infoChart.series[0].data = data.Count;
+    zt.chart.setOption(zt.infoChart)
 }
